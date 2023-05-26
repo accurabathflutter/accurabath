@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "914296772434",
+    "project_id": "accurabatherp",
+    "storage_bucket": "accurabatherp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:914296772434:android:ec97c3de87730068d8cc8b",
+        "android_client_info": {
+          "package_name": "com.Accurabath.sharvayainfotech"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "914296772434-u89p5pofv40s05vh2dnrn9sa9i4b9k9i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7mxW41xOoHomZhYWI_nCSDdKyKv6J67w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "914296772434-u89p5pofv40s05vh2dnrn9sa9i4b9k9i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
