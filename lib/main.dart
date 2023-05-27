@@ -11,6 +11,17 @@ import 'package:flutter_background_service_android/flutter_background_service_an
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:for_practice_the_app/Clients/Acurabath/Quotation/add_edit/acurabath_qt_assembly/acurabath_qt_assambly_add_edit_screen.dart';
+import 'package:for_practice_the_app/Clients/Acurabath/Quotation/add_edit/acurabath_qt_assembly/acurabath_qt_assambly_list_screen.dart';
+import 'package:for_practice_the_app/Clients/Acurabath/Quotation/add_edit/acurabath_qt_general_cust_search.dart';
+import 'package:for_practice_the_app/Clients/Acurabath/Quotation/add_edit/acurabath_qt_other_charges/acurabath_qt_other_charges.dart';
+import 'package:for_practice_the_app/Clients/Acurabath/Quotation/add_edit/acurabath_qt_specification/acurabath_specification_add_edit_screen.dart';
+import 'package:for_practice_the_app/Clients/Acurabath/Quotation/add_edit/acurabath_qt_specification/acurabath_specification_list_screen.dart';
+import 'package:for_practice_the_app/Clients/Acurabath/Quotation/add_edit/acurabth_qt_add_edit_screen.dart';
+import 'package:for_practice_the_app/Clients/Acurabath/Quotation/add_edit/acurabth_qt_products_crud/acurabath_qt_product_add_edit_screen.dart';
+import 'package:for_practice_the_app/Clients/Acurabath/Quotation/add_edit/acurabth_qt_products_crud/acurabath_qt_product_list.dart';
+import 'package:for_practice_the_app/Clients/Acurabath/Quotation/list/acurabath_qt_list_screen.dart';
+import 'package:for_practice_the_app/Clients/Acurabath/Quotation/list/acurabath_qt_search_screen.dart';
 import 'package:for_practice_the_app/Clients/BlueTone/Customer/blue_tone_customer_add_edit.dart';
 import 'package:for_practice_the_app/Clients/BlueTone/Customer/bt_country_list_screen.dart';
 import 'package:for_practice_the_app/Clients/BlueTone/Inquiry/AddEdit/bluetone_inquiry_add_edit.dart';
@@ -895,6 +906,50 @@ class MyApp extends StatefulWidget {
       case BlueToneFollowupNotificationDetailScreen.routeName:
         return getMaterialPageRoute(
             BlueToneFollowupNotificationDetailScreen(settings.arguments));
+
+
+      case AcurabathQuotationListScreen.routeName:
+        return getMaterialPageRoute(
+            AcurabathQuotationListScreen());
+      case AcurabathSearchQuotationScreen.routeName:
+        return getMaterialPageRoute(
+            AcurabathSearchQuotationScreen());
+
+      case AcurabathQuotationAddEditScreen.routeName:
+        return getMaterialPageRoute(
+            AcurabathQuotationAddEditScreen(settings.arguments));
+
+      case AcurabathSearchQuotationCustomerScreen.routeName:
+        return getMaterialPageRoute(
+            AcurabathSearchQuotationCustomerScreen());
+      case AcurabathOldQuotationProductListScreen.routeName:
+        return getMaterialPageRoute(
+            AcurabathOldQuotationProductListScreen(settings.arguments));
+
+      case AccurabathOldAddQuotationProductScreen.routeName:
+        return getMaterialPageRoute(
+            AccurabathOldAddQuotationProductScreen(settings.arguments));
+
+      case AcurabathNewQuotationOtherChargeScreen.routeName:
+        return getMaterialPageRoute(
+            AcurabathNewQuotationOtherChargeScreen(settings.arguments));
+
+      case AcurabathSpecificationListScreen.routeName:
+        return getMaterialPageRoute(
+            AcurabathSpecificationListScreen(settings.arguments));
+
+      case AcurabathQuotationSpecificationAddEditScreen.routeName:
+        return getMaterialPageRoute(
+            AcurabathQuotationSpecificationAddEditScreen(settings.arguments));
+
+
+      case AcurabathQTAssemblyScreen.routeName:
+        return getMaterialPageRoute(
+            AcurabathQTAssemblyScreen(settings.arguments));
+
+      case AcurabathQTAssemblyAddEditScreen.routeName:
+        return getMaterialPageRoute(
+            AcurabathQTAssemblyAddEditScreen(settings.arguments));
 
       default:
         return null;

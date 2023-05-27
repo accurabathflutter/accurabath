@@ -55,10 +55,17 @@ class QuotationHeaderSaveRequest {
   String CurrencyName;
   String CurrencySymbol;
   String ExchangeRate;
+  String DiscountPer;
+  String DeliveryDays;
+  String Validity;
 
-  /*data['CurrencyName'] = "";
-    data['CurrencySymbol'] = "";
-    data['ExchangeRate'] = "";*/
+  /*CreditDays:7Days
+DiscountPer:0
+DeliveryDays:7Days
+Validity:30Days
+CurrencyName:US Dollor
+CurrencySymbol:$
+ExchangeRate:85.00*/
 
   QuotationHeaderSaveRequest(
       {this.pkID,
@@ -116,7 +123,11 @@ class QuotationHeaderSaveRequest {
       this.CreditDays,
       this.CurrencyName,
       this.CurrencySymbol,
-      this.ExchangeRate});
+      this.ExchangeRate,
+      this.DiscountPer,
+        this.DeliveryDays,
+        this.Validity
+      });
 
   QuotationHeaderSaveRequest.fromJson(Map<String, dynamic> json) {
     pkID = json['pkID'];
@@ -175,6 +186,9 @@ class QuotationHeaderSaveRequest {
     CurrencyName = json['CurrencyName'];
     CurrencySymbol = json['CurrencySymbol'];
     ExchangeRate = json['ExchangeRate'];
+    DiscountPer =  json['DiscountPer'];
+    DeliveryDays = json['DeliveryDays'];
+    Validity =     json['Validity'];
   }
 
   Map<String, dynamic> toJson() {
@@ -244,6 +258,10 @@ class QuotationHeaderSaveRequest {
     data['CurrencyName'] = CurrencyName;
     data['CurrencySymbol'] = CurrencySymbol;
     data['ExchangeRate'] = ExchangeRate;
+    data['DiscountPer']  =  DiscountPer;
+    data['DeliveryDays'] =  DeliveryDays;
+    data['Validity']     =  Validity;
+
 
     return data;
   }

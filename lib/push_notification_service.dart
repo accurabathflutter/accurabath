@@ -5,6 +5,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:for_practice_the_app/Clients/Acurabath/Quotation/list/acurabath_qt_list_screen.dart';
 import 'package:for_practice_the_app/models/common/globals.dart';
 import 'package:for_practice_the_app/ui/screens/DashBoard/Modules/Complaint/complaint_pagination_screen.dart';
 import 'package:for_practice_the_app/ui/screens/DashBoard/Modules/ToDo/to_do_list_screen.dart';
@@ -72,7 +73,13 @@ class PushNotificationService {
       // if (message.data['type'] == 'chat') {
       //   // Navigator.pushNamed(context, '/chat',
       //   //     arguments: ChatArguments(message));
+      //
+      //
+      //
+      //
       // }
+
+
 
       print("messageData1232" + message.notification.toString());
     });
@@ -152,7 +159,7 @@ class PushNotificationService {
             });
             //navigateTo(context, FollowupListScreen.routeName, clearAllStack: true);
           } else if (dataMap['title'] == "Quotation") {
-            navigateTo(Globals.context, QuotationListScreen.routeName,
+            navigateTo(Globals.context, AcurabathQuotationListScreen.routeName,
                 clearAllStack: true);
           } else if (dataMap['title'] == "Sales Order") {
             navigateTo(Globals.context, SalesOrderListScreen.routeName,

@@ -9,6 +9,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_image_compress/flutter_image_compress.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_shine/flutter_shine.dart';
+import 'package:for_practice_the_app/Clients/Acurabath/Quotation/list/acurabath_qt_list_screen.dart';
 import 'package:for_practice_the_app/Clients/BlueTone/bluetone_model/api_request/Logout_Count/logout_count_request.dart';
 import 'package:for_practice_the_app/blocs/other/bloc_modules/dashboard/dashboard_user_rights_screen_bloc.dart';
 import 'package:for_practice_the_app/models/api_requests/api_token/api_token_update_request.dart';
@@ -3436,7 +3437,7 @@ class _HomeScreenState extends BaseState<HomeScreen>
         MovetoFollowupScreen(Globals.context, message.notification.title,
             message.notification.body);
       } else if (message.data['title'] == "Quotation") {
-        navigateTo(Globals.context, QuotationListScreen.routeName,
+        navigateTo(Globals.context, AcurabathQuotationListScreen.routeName,
             clearAllStack: true);
       } else if (message.data['title'] == "Sales Order") {
         navigateTo(Globals.context, SalesOrderListScreen.routeName,

@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_background_service/flutter_background_service.dart';
+import 'package:for_practice_the_app/Clients/Acurabath/Quotation/list/acurabath_qt_list_screen.dart';
 import 'package:for_practice_the_app/models/api_responses/company_details/company_details_response.dart';
 import 'package:for_practice_the_app/models/api_responses/login/login_user_details_api_response.dart';
 import 'package:for_practice_the_app/models/common/all_name_id_list.dart';
@@ -1255,7 +1256,8 @@ makeDashboardItem(
       } else if (title == "Activity Summary") {
         navigateTo(context, OfficeToDoScreen.routeName, clearAllStack: true);
       } else if (title == "Quotation") {
-        navigateTo(context, QuotationListScreen.routeName, clearAllStack: true);
+
+        navigateTo(context, AcurabathQuotationListScreen.routeName, clearAllStack: true);
       } else if (title == "SalesOrder") {
         navigateTo(context, SalesOrderListScreen.routeName,
             clearAllStack: true);
@@ -1960,7 +1962,7 @@ getLeadList(List<ALL_Name_ID> sale, BuildContext context) {
               navigateTo(context, FollowupListScreen.routeName,
                   clearAllStack: true);
             if (sale[i].Name == "Quotation")
-              navigateTo(context, QuotationListScreen.routeName,
+              navigateTo(context, AcurabathQuotationListScreen.routeName,
                   clearAllStack: true);
             if (sale[i].Name == "SalesBill")
               navigateTo(context, SalesBillListScreen.routeName,

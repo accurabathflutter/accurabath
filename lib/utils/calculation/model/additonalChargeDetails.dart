@@ -54,6 +54,8 @@ class AddditionalCharges {
   String OtherChargeWithTax;
   String OtherChargeWithExcludTax;
   String TotalGSTAmnt;
+  String ACDis;
+  String ACDisAmnt;
 
   AddditionalCharges(
       {this.DiscountAmt,
@@ -110,7 +112,11 @@ class AddditionalCharges {
       this.ChargeIsBeforGst5,
       this.OtherChargeWithTax,
       this.OtherChargeWithExcludTax,
-      this.TotalGSTAmnt});
+      this.TotalGSTAmnt,
+      this.ACDis,
+        this.ACDisAmnt
+
+      });
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['DiscountAmt'] = this.DiscountAmt;
@@ -169,5 +175,8 @@ class AddditionalCharges {
     data['OtherChargeWithTax'] = this.OtherChargeWithTax;
     data['OtherChargeWithExcludTax'] = this.OtherChargeWithExcludTax;
     data['TotalGSTAmnt'] = this.TotalGSTAmnt;
+
+    data['ACDis'] = this.ACDis;
+    data['ACDisAmnt'] = this.ACDisAmnt;
   }
 }
