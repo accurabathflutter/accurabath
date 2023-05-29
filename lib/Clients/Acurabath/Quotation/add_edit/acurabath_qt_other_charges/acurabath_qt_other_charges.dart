@@ -198,6 +198,7 @@ class _AcurabathNewQuotationOtherChargeScreenState
         : widget.arguments.ACDisAmntFromAddEditScreen;
 
 
+
     _inquiryBloc.add(QuotationOtherCharge1CallEvent(
         CompanyID.toString(), QuotationOtherChargesListRequest(pkID: "")));
 
