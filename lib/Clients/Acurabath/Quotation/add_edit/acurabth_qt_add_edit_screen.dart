@@ -1164,13 +1164,14 @@ class _AcurabathQuotationAddEditScreenState extends BaseState<AcurabathQuotation
                                                         : edt_StateCode.text),
                                                 _editModel,
                                                 "0.00",
-
-                                            _maindis_per.text,
                                             _maindis_per_amnt.text,
+                                            _maindis_per.text,
+
                                                 "OtherCharge",
                                                 addditionalCharges))
                                     .then((value) {
                                   setState(() {
+                                    addditionalCharges = AddditionalCharges();
                                     addditionalCharges = value;
 
                                     isUpdateCalculation = true;
@@ -1219,12 +1220,13 @@ class _AcurabathQuotationAddEditScreenState extends BaseState<AcurabathQuotation
                                                         : edt_StateCode.text),
                                                 _editModel,
                                             "0.00",
-                                                _maindis_per.text,
-                                                _maindis_per_amnt.text,
+                                            _maindis_per_amnt.text,
+                                            _maindis_per.text,
                                                 "Calculation",
                                                 addditionalCharges))
                                     .then((value) {
                                   setState(() {
+                                    addditionalCharges = AddditionalCharges();
                                     addditionalCharges = value;
 
                                     isUpdateCalculation = true;
@@ -1845,6 +1847,9 @@ class _AcurabathQuotationAddEditScreenState extends BaseState<AcurabathQuotation
       ChargePer4: "0.00",
       ChargePer5: "0.00",
     );
+
+
+
 
     print("ADDDitonalCharge" +
         " AdditionalChargeModel :  " +
@@ -5218,7 +5223,7 @@ class _AcurabathQuotationAddEditScreenState extends BaseState<AcurabathQuotation
               Tot_IGSTAmt,
             Tot_after_acurabath_dis,
               Tot_NetAmt,
-              HeaderDisAmnt,
+              0.00,
               Tot_otherChargeWithTax,
               Tot_otherChargeExcludeTax,
             AcurabathDis,
@@ -6033,12 +6038,13 @@ class _AcurabathQuotationAddEditScreenState extends BaseState<AcurabathQuotation
                                                 : edt_StateCode.text),
                                             _editModel,
                                             "0.00",
-                                        _maindis_per.text,
                                         _maindis_per_amnt.text,
+                                        _maindis_per.text,
                                             "OtherCharge",
                                             addditionalCharges))
                                 .then((value) {
                               setState(() {
+                                addditionalCharges = AddditionalCharges();
                                 addditionalCharges = value;
 
                                 isUpdateCalculation = true;
@@ -6086,12 +6092,13 @@ class _AcurabathQuotationAddEditScreenState extends BaseState<AcurabathQuotation
                                                 : edt_StateCode.text),
                                             _editModel,
                                             "0.00",
-                                        _maindis_per.text,
                                         _maindis_per_amnt.text,
+                                        _maindis_per.text,
                                             "Calculation",
                                             addditionalCharges))
                                 .then((value) {
                               setState(() {
+                                addditionalCharges = AddditionalCharges();
                                 addditionalCharges = value;
 
                                 isUpdateCalculation = true;

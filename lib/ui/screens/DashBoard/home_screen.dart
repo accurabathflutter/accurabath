@@ -2534,7 +2534,7 @@ class _HomeScreenState extends BaseState<HomeScreen>
       }
 
       ///_________________________________Sales____________________________________________________
-      else if (response.menuRightsResponse.details[i].menuName ==
+     /* else if (response.menuRightsResponse.details[i].menuName ==
           "pgSalesOrder") {
         if (_offlineLoggedInData.details[0].serialKey.toLowerCase() !=
             "dol2-6uh7-ph03-in5h") {
@@ -2549,7 +2549,8 @@ class _HomeScreenState extends BaseState<HomeScreen>
         all_name_id.Name = "Sales Target";
         all_name_id.Name1 = "http://demo.sharvayainfotech.in/images/Target.png";
         arr_ALL_Name_ID_For_Sales.add(all_name_id);
-      } else if (response.menuRightsResponse.details[i].menuName ==
+      }
+      else if (response.menuRightsResponse.details[i].menuName ==
           "pgSalesBill") {
         {
           ALL_Name_ID all_name_id = ALL_Name_ID();
@@ -2557,7 +2558,7 @@ class _HomeScreenState extends BaseState<HomeScreen>
           all_name_id.Name1 = "http://demo.sharvayainfotech.in/images/sale.png";
           arr_ALL_Name_ID_For_Sales.add(all_name_id);
         }
-      }
+      }*/
 
       ///__________________________________Production____________________________________________________
 
@@ -2713,13 +2714,13 @@ class _HomeScreenState extends BaseState<HomeScreen>
 
       ///-------------------------------------Account---------------------------------------------------------
 
-      else if (response.menuRightsResponse.details[i].menuName ==
+      /*else if (response.menuRightsResponse.details[i].menuName ==
           "pgBankVoucher") {
         ALL_Name_ID all_name_id = ALL_Name_ID();
         all_name_id.Name = "BankVoucher";
         all_name_id.Name1 = "http://demo.sharvayainfotech.in/images/bank.png";
         arr_ALL_Name_ID_For_Account.add(all_name_id);
-      }
+      }*/
       /*else if (response.menuRightsResponse.details[i].menuName ==
           "pgCashVoucher") {
         ALL_Name_ID all_name_id = ALL_Name_ID();
@@ -2772,7 +2773,7 @@ class _HomeScreenState extends BaseState<HomeScreen>
         all_name_id.Name = "Leave Request";
         all_name_id.Name1 = "http://demo.sharvayainfotech.in/images/leave.png";
         arr_ALL_Name_ID_For_HR.add(all_name_id);
-      } else if (response.menuRightsResponse.details[i].menuName ==
+      } /*else if (response.menuRightsResponse.details[i].menuName ==
           "pgLeaveApprovalView") {
         //isExpenseExist = true;
 
@@ -2784,7 +2785,7 @@ class _HomeScreenState extends BaseState<HomeScreen>
             "http://demo.sharvayainfotech.in/images/approved.png";
 
         arr_ALL_Name_ID_For_HR.add(all_name_id);
-      } else if (response.menuRightsResponse.details[i].menuName ==
+      }*/ else if (response.menuRightsResponse.details[i].menuName ==
           "pgAttendance") {
         //isExpenseExist = true;
 
@@ -2802,14 +2803,14 @@ class _HomeScreenState extends BaseState<HomeScreen>
         all_name_id.Name1 =
             "http://demo.sharvayainfotech.in/images/Expense.png";
         arr_ALL_Name_ID_For_HR.add(all_name_id);
-      } else if (response.menuRightsResponse.details[i].menuName ==
+      } /*else if (response.menuRightsResponse.details[i].menuName ==
           "pgEmployee") {
         ALL_Name_ID all_name_id = ALL_Name_ID();
         all_name_id.Name = "Employee";
         all_name_id.Name1 =
             "http://demo.sharvayainfotech.in/images/participant.png";
         arr_ALL_Name_ID_For_HR.add(all_name_id);
-      } else if (response.menuRightsResponse.details[i].menuName ==
+      } *//*else if (response.menuRightsResponse.details[i].menuName ==
           "pgLoanApproval") {
         ALL_Name_ID all_name_id = ALL_Name_ID();
         all_name_id.Name = "Loan Approval";
@@ -2841,11 +2842,11 @@ class _HomeScreenState extends BaseState<HomeScreen>
         all_name_id.Name = "Loan Installments";
         all_name_id.Name1 = "http://demo.sharvayainfotech.in/images/salary.png";
         arr_ALL_Name_ID_For_HR.add(all_name_id);
-      }
+      }*/
 
       ///----------------------------------Purchase________________________________________________________
 
-      else if (response.menuRightsResponse.details[i].menuName ==
+     /* else if (response.menuRightsResponse.details[i].menuName ==
           "pgPurcOrder") {
         ALL_Name_ID all_name_id = ALL_Name_ID();
         all_name_id.Name = "Purchase Order";
@@ -2865,7 +2866,7 @@ class _HomeScreenState extends BaseState<HomeScreen>
         all_name_id.Name = "Purchase Bill";
         all_name_id.Name1 = "http://demo.sharvayainfotech.in/images/buy.png";
         arr_ALL_Name_ID_For_Purchase.add(all_name_id);
-      }
+      }*/
 
       ///------------------------------------Office_________________________________________________________
       else if (response.menuRightsResponse.details[i].menuName ==
@@ -2957,13 +2958,13 @@ class _HomeScreenState extends BaseState<HomeScreen>
             arr_ALL_Name_ID_For_Support.add(all_name_id);
           }
         }
-      } else if (response.menuRightsResponse.details[i].menuName ==
+      } /*else if (response.menuRightsResponse.details[i].menuName ==
           "pgContractInfo") {
         ALL_Name_ID all_name_id = ALL_Name_ID();
         all_name_id.Name = "Maintenance Contract";
         all_name_id.Name1 = "http://demo.sharvayainfotech.in/images/amc.png";
         arr_ALL_Name_ID_For_Support.add(all_name_id);
-      }
+      }*/
 
       if (ISDelaer == "Dealer") {
         arr_ALL_Name_ID_For_HR.clear();

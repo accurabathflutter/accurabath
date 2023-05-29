@@ -606,7 +606,8 @@ class _AttendVisitAddEditScreenState extends BaseState<AttendVisitAddEditScreen>
                               "");
 
                           if (edt_CustomerName.text.toString().trim() != "") {
-                            if (edt_Complaint_No.text.toString().trim() != "") {
+
+
                               if (edt_ComplaintNotes.text.toString().trim() !=
                                   "") {
                                 if (IsCharged == true) {
@@ -717,14 +718,7 @@ class _AttendVisitAddEditScreenState extends BaseState<AttendVisitAddEditScreen>
                                   Navigator.of(context).pop();
                                 });
                               }
-                            } else {
-                              showCommonDialogWithSingleOption(
-                                  context, "Complaint No is required !",
-                                  positiveButtonTitle: "OK",
-                                  onTapOfPositiveButton: () {
-                                Navigator.of(context).pop();
-                              });
-                            }
+
                           } else {
                             showCommonDialogWithSingleOption(
                                 context, "Customer name is required !",

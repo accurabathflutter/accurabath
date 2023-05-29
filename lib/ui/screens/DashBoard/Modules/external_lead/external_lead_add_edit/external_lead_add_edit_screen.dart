@@ -945,8 +945,7 @@ class _ExternalLeadAddEditScreenState
                                       if(edt_QualifiedEmplyeeName.text!="")
                                       {
 
-                                        if(edt_InProcess_Details.text!="")
-                                        {
+
                                           showCommonDialogWithTwoOptions(
                                               context,
                                               "Are you sure you want to Save Portal Details ?",
@@ -1091,12 +1090,8 @@ class _ExternalLeadAddEditScreenState
 
                                                         )));
                                               });
-                                        }
-                                        else
-                                        {
-                                          showCommonDialogWithSingleOption(context, "In-Process Remarks is required!", positiveButtonTitle: "OK");
 
-                                        }
+
 
                                       }
                                       else
@@ -3476,7 +3471,7 @@ class _ExternalLeadAddEditScreenState
                   ],
                 )),
           ),
-          SizedBox(
+         /* SizedBox(
             width: 20,
             height: 10,
           ),
@@ -3516,7 +3511,7 @@ class _ExternalLeadAddEditScreenState
                 ),
               ),
             ],
-          ),
+          ),*/
 
           SizedBox(
             width: 20,

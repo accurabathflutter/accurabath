@@ -24,6 +24,10 @@ class ALL_Name_ID {
   String CountryCode;
   String CountryName;
 
+  String ACDis;
+  String ACDisAmnt;
+
+
   ALL_Name_ID({
     this.pkID,
     this.Name,
@@ -43,5 +47,7 @@ class ALL_Name_ID {
     this.StateName,
     this.CountryCode,
     this.CountryName,
+    this.ACDis,
+    this.ACDisAmnt
   });
 }

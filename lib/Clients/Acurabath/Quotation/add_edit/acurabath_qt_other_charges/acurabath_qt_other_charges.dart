@@ -62,7 +62,6 @@ class _AcurabathNewQuotationOtherChargeScreenState
   int CompanyID = 0;
   String LoginUserID = "";
   double CardViewHeight = 35;
-  TextEditingController _headerDiscountController = TextEditingController();
 
   TextEditingController _maindis_per = TextEditingController();
   TextEditingController _maindis_per_amnt = TextEditingController();
@@ -100,7 +99,6 @@ class _AcurabathNewQuotationOtherChargeScreenState
       TextEditingController();
   TextEditingController _netAmountController = TextEditingController();
   TextEditingController _roundOFController = TextEditingController();
-  List<QuotationTable> _inquiryProductList = [];
   double HeaderDisAmnt = 0.00;
   double GrossAmnt = 0.00;
   double AcurabathDis = 0.00;
@@ -187,35 +185,34 @@ class _AcurabathNewQuotationOtherChargeScreenState
 
     _inquiryBloc = QuotationBloc(baseBloc);
 
-    _headerDiscountController.text =
-        widget.arguments.HeaderDiscFromAddEditScreen.toString() == "null"
-            ? "0.00"
-            : widget.arguments.HeaderDiscFromAddEditScreen;
+
 
     _maindis_per.text =  widget.arguments.ACDisFromAddEditScreen.toString() == "null"
         ? "0.00"
         : widget.arguments.ACDisFromAddEditScreen;
 
+
+
     _maindis_per_amnt.text = widget.arguments.ACDisAmntFromAddEditScreen.toString() == "null"
         ? "0.00"
         : widget.arguments.ACDisAmntFromAddEditScreen;
 
-    print("sjdjdf223" +
-        " HeaderDiscount : " +
-        _headerDiscountController.text.toString());
+
     _inquiryBloc.add(QuotationOtherCharge1CallEvent(
         CompanyID.toString(), QuotationOtherChargesListRequest(pkID: "")));
 
     _inquiryBloc.add(GetGenericAddditionalChargesEvent());
 
     _inquiryBloc.add(QuotationOtherChargeCallEvent(
-        _headerDiscountController.text,
+        "0.00",
         CompanyID.toString(),
         QuotationOtherChargesListRequest(pkID: "")));
 
     _addditionalCharges = widget.arguments.addditionalCharges;
 
     _inquiryBloc.add(GetQuotationProductListEvent());
+
+
 
     //  _headerDiscountController.text = "0.00";
   }
@@ -285,7 +282,6 @@ class _AcurabathNewQuotationOtherChargeScreenState
 
     super.dispose();
 
-    _headerDiscountController.dispose();
     _basicAmountController.dispose();
     _otherChargeWithTaxController.dispose();
     _totalGstController.dispose();
@@ -554,7 +550,9 @@ class _AcurabathNewQuotationOtherChargeScreenState
                       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                         content: Text("OtherCharges Update SucessFully !"),
                       ));
-                    }, "Submit")
+                    }, "Submit"),
+
+
                   ],
                 ),
               ),
@@ -565,10 +563,10 @@ class _AcurabathNewQuotationOtherChargeScreenState
     );
   }
 
-  Future<bool> _onBackPressed() async {
+  Future<bool> _onBackPressed()  {
 
     _OnTaptoSave();
-    _OnTaptoSave();
+
 
 
     AddditionalCharges addditionalCharges = AddditionalCharges(
@@ -580,22 +578,27 @@ class _AcurabathNewQuotationOtherChargeScreenState
       ChargeAmt1: _otherAmount1.text.toString(),
       ChargeBasicAmt1: otherChargeGstBasicAmnt1Controller.text.toString(),
       ChargeGSTAmt1: otherChargeGstAmnt1Controller.text.toString(),
+
       ChargeID2: _otherChargeIDController2.text.toString(),
       ChargeAmt2: _otherAmount2.text.toString(),
       ChargeBasicAmt2: otherChargeGstBasicAmnt2Controller.text.toString(),
       ChargeGSTAmt2: otherChargeGstAmnt2Controller.text.toString(),
+
       ChargeID3: _otherChargeIDController3.text.toString(),
       ChargeAmt3: _otherAmount3.text.toString(),
       ChargeBasicAmt3: otherChargeGstBasicAmnt3Controller.text.toString(),
       ChargeGSTAmt3: otherChargeGstAmnt3Controller.text.toString(),
+
       ChargeID4: _otherChargeIDController4.text.toString(),
       ChargeAmt4: _otherAmount4.text.toString(),
       ChargeBasicAmt4: otherChargeGstBasicAmnt4Controller.text.toString(),
       ChargeGSTAmt4: otherChargeGstAmnt4Controller.text.toString(),
+
       ChargeID5: _otherChargeIDController5.text.toString(),
       ChargeAmt5: _otherAmount5.text.toString(),
       ChargeBasicAmt5: otherChargeGstBasicAmnt5Controller.toString(),
       ChargeGSTAmt5: otherChargeGstAmnt5Controller.text.toString(),
+
       NetAmt: _netAmountController.text.toString(),
       BasicAmt: _basicAmountController.text.toString(),
       ROffAmt: _roundOFController.text.toString(),
@@ -606,78 +609,15 @@ class _AcurabathNewQuotationOtherChargeScreenState
       ChargePer5: _otherChargeGSTPerController5.text.toString(),
       ACDis: _maindis_per.text.toString(),
       ACDisAmnt: _maindis_per_amnt.text.toString()
+
     );
 
-    print("_headerDiscountController.text.toString()," +
-        _headerDiscountController.text.toString());
+
 
     Navigator.of(context).pop(addditionalCharges);
     print("Tap To BackEvent");
   }
 
-  Widget DiscountAmount() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Container(
-          margin: EdgeInsets.only(left: 10, right: 10),
-          child: Text("Discount Amount",
-              style: TextStyle(
-                  fontSize: 12,
-                  color: colorPrimary,
-                  fontWeight: FontWeight
-                      .bold) // baseTheme.textTheme.headline2.copyWith(color: colorBlack),
-
-              ),
-        ),
-        SizedBox(
-          height: 3,
-        ),
-        Card(
-          elevation: 5,
-          color: colorLightGray,
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-          child: Container(
-            height: CardViewHeight,
-            padding: EdgeInsets.only(left: 20, right: 20),
-            width: double.maxFinite,
-            alignment: Alignment.center,
-            child: TextFormField(
-                validator: (value) {
-                  if (value.toString().trim().isEmpty) {
-                    return "Please enter this field";
-                  }
-                  return null;
-                },
-                textInputAction: TextInputAction.next,
-                keyboardType: TextInputType.numberWithOptions(decimal: true),
-                controller: _headerDiscountController,
-                onTap: () => {
-                      _headerDiscountController.selection = TextSelection(
-                        baseOffset: 0,
-                        extentOffset: _headerDiscountController.text.length,
-                      )
-                    },
-                decoration: InputDecoration(
-                  contentPadding: EdgeInsets.only(bottom: 10),
-                  hintText: "0.00",
-                  labelStyle: TextStyle(
-                    color: Color(0xFF000000),
-                  ),
-                  border: InputBorder.none,
-                ),
-                style: TextStyle(
-                  fontSize: 15,
-                  color: Color(0xFF000000),
-                ) // baseTheme.textTheme.headline2.copyWith(color: colorBlack),
-
-                ),
-          ),
-        )
-      ],
-    );
-  }
 
   Widget DiscountPer() {
     return Column(
@@ -783,9 +723,9 @@ class _AcurabathNewQuotationOtherChargeScreenState
                 keyboardType: TextInputType.numberWithOptions(decimal: true),
                 controller: _maindis_per_amnt,
                 onTap: () => {
-                      _headerDiscountController.selection = TextSelection(
+                  _maindis_per_amnt.selection = TextSelection(
                         baseOffset: 0,
-                        extentOffset: _headerDiscountController.text.length,
+                        extentOffset: _maindis_per_amnt.text.length,
                       )
                     },
                 decoration: InputDecoration(
@@ -848,9 +788,9 @@ class _AcurabathNewQuotationOtherChargeScreenState
                 keyboardType: TextInputType.numberWithOptions(decimal: true),
                 controller: _gross_amnt,
                 onTap: () => {
-                      _headerDiscountController.selection = TextSelection(
+                  _gross_amnt.selection = TextSelection(
                         baseOffset: 0,
-                        extentOffset: _headerDiscountController.text.length,
+                        extentOffset: _gross_amnt.text.length,
                       )
                     },
                 decoration: InputDecoration(
@@ -1271,9 +1211,7 @@ class _AcurabathNewQuotationOtherChargeScreenState
       }
 
       //_headerDiscountController.text = "100.00";
-      HeaderDisAmnt = _headerDiscountController.text.isNotEmpty
-          ? double.parse(_headerDiscountController.text)
-          : 0.00;
+      HeaderDisAmnt =  0.00;
 
       AcurabathDis =
           _maindis_per.text.isNotEmpty ? double.parse(_maindis_per.text) : 0.00;
@@ -1284,13 +1222,13 @@ class _AcurabathNewQuotationOtherChargeScreenState
 
       print("jfjjfd" + HeaderDisAmnt.toString());
 
-      List<QuotationTable> TempproductList1 =
+     /* List<QuotationTable> TempproductList1 =
           HeaderDiscountCalculation.txtHeadDiscount_WithZero(
-              productList, 0.00, CompanyStateCode, CustomerStateID);
+              productList, 0.00, CompanyStateCode, CustomerStateID);*/
 
       List<QuotationTable> TempproductList =
           HeaderDiscountCalculation.txtHeadDiscount_TextChanged(
-              TempproductList1,
+              productList,
               0.00,
               CompanyStateCode,
               CustomerStateID);
@@ -1309,7 +1247,7 @@ class _AcurabathNewQuotationOtherChargeScreenState
             productList[i].NetAmount.toString());
       }
 
-      for (int i = 0; i < TempproductList1.length; i++) {
+     /* for (int i = 0; i < TempproductList1.length; i++) {
         print("TempproductList1" +
             " AmountCalculation : " +
             TempproductList1[i].DiscountPercent.toString() +
@@ -1321,7 +1259,7 @@ class _AcurabathNewQuotationOtherChargeScreenState
             TempproductList1[i].Amount.toString() +
             " NetAmount : " +
             TempproductList1[i].NetAmount.toString());
-      }
+      }*/
 
       for (int i = 0; i < TempproductList.length; i++) {
         print("TempproductList78" +
@@ -1337,6 +1275,8 @@ class _AcurabathNewQuotationOtherChargeScreenState
             TempproductList[i].NetAmount.toString());
       }
       UpdateHeaderDiscountCalculation(TempproductList);
+
+
     }
     /* double Tot_BasicAmount = 0.00;
       double Tot_GSTAmt = 0.00;
@@ -1360,27 +1300,31 @@ class _AcurabathNewQuotationOtherChargeScreenState
     }*/
 
     _inquiryBloc.add(QuotationOtherChargeCallEvent(
-        _headerDiscountController.text,
+        "0.00",
         CompanyID.toString(),
         QuotationOtherChargesListRequest(pkID: "")));
   }
 
   void _OnTaptoSave() {
+
     String CustomerStateID = "";
+
     if (productList != null) {
+
+
       CustomerStateID = productList[0].StateCode.toString();
 
       HeaderDisAmnt =  0.00;
       String CompanyStateCode =
           _offlineLoggedInData.details[0].stateCode.toString();
 
-      List<QuotationTable> TempproductList1 =
+     /* List<QuotationTable> TempproductList1 =
           HeaderDiscountCalculation.txtHeadDiscount_WithZero(
-              productList, 0.00, CompanyStateCode, CustomerStateID);
+              productList, 0.00, CompanyStateCode, CustomerStateID);*/
 
       List<QuotationTable> TempproductList =
           HeaderDiscountCalculation.txtHeadDiscount_TextChanged(
-              TempproductList1,
+              productList,
               0.00,
               CompanyStateCode,
               CustomerStateID);
@@ -1410,7 +1354,6 @@ class _AcurabathNewQuotationOtherChargeScreenState
         _otherChargeNameController3.text,
         _otherChargeNameController4.text,
         _otherChargeNameController5.text,
-
       );
 
       _inquiryBloc
@@ -1460,7 +1403,6 @@ class _AcurabathNewQuotationOtherChargeScreenState
           " Tot_NetAmt : " +
           Tot_NetAmt.toString() +" Disc " + AcurabathDis.toString());
       HeaderDisAmnt =  0.00;
-      AcurabathDis = 0.00;
       AcurabathDis =
           _maindis_per.text.isNotEmpty ? double.parse(_maindis_per.text) : 0.00;
       AcurabathDisAmnt = _maindis_per_amnt.text.isNotEmpty
@@ -1540,6 +1482,9 @@ class _AcurabathNewQuotationOtherChargeScreenState
         if (_otherChargeNameController1.text.toString() != "null") {
           print("AA1" + _otherChargeBeForeGSTController1.text.toString());
 
+
+
+         /* if(_otherAmount1.text=="0")*/
           hdnOthChrgGST1hdnOthChrgBasic1 =
               AddtionalCharges.txtOthChrgAmt1_TextChanged(
                   _otherChargeIDController1.text.isNotEmpty
