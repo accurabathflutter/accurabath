@@ -131,6 +131,9 @@ class QuotationDetails {
   String CurrencyName;
   String CurrencySymbol;
   double ExchangeRate;
+  double DiscountPer;
+  String DeliveryDays;
+  String Validity;
 
   QuotationDetails({
     this.rowNum,
@@ -241,7 +244,13 @@ class QuotationDetails {
     this.CurrencyName,
     this.CurrencySymbol,
     this.ExchangeRate,
+    this.DiscountPer,
+    this.DeliveryDays,
+    this.Validity
   });
+
+  /* String DeliveryDays;
+  String Validity;*/
 
   QuotationDetails.fromJson(Map<String, dynamic> json) {
     rowNum = json['RowNum'] == null ? 0 : json['RowNum'];
@@ -383,6 +392,11 @@ class QuotationDetails {
     CurrencySymbol =
         json['CurrencySymbol'] == null ? "" : json['CurrencySymbol'];
     ExchangeRate = json['ExchangeRate'] == null ? 0.00 : json['ExchangeRate'];
+    DiscountPer= json['DiscountPer'] == null ? 0.00 : json['DiscountPer'];
+    DeliveryDays = json['DeliveryDays'] == null ? "" : json['DeliveryDays'];
+
+    Validity = json['Validity'] == null ? "" : json['Validity'];
+
   }
 
   Map<String, dynamic> toJson() {
@@ -497,9 +511,17 @@ class QuotationDetails {
     data['CurrencySymbol'] = this.CurrencySymbol;
     data['ExchangeRate'] = this.ExchangeRate;
 
+    data['DiscountPer'] =  this.DiscountPer;
+    data['DeliveryDays'] = this.DeliveryDays;
+    data['Validity'] = this.Validity;
+
     /* this.CurrencyName,
     this.CurrencySymbol,
     this.ExchangeRate,*/
+
+    /* double DiscountPer;
+  String DeliveryDays;
+  String Validity;*/
 
     return data;
   }

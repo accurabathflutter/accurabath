@@ -530,6 +530,7 @@ class _NewSalesBillOtherChargeScreenState
 
   Future<bool> _onBackPressed() async {
     _OnTaptoSave();
+    _OnTaptoSave();
 
     AddditionalCharges addditionalCharges = AddditionalCharges(
       DiscountAmt: _headerDiscountController.text.toString(),

@@ -1127,7 +1127,7 @@ class _AcurabathQuotationAddEditScreenState extends BaseState<AcurabathQuotation
                                       AcurabathOldAddQuotationProductListArgument(
                                               InquiryNo,
                                               edt_StateCode.text,
-                                              edt_HeaderDisc.text))
+                                              "0.00"))
                                   .then((value) async {
                                 await getInquiryProductDetails();
                               });
@@ -1163,7 +1163,7 @@ class _AcurabathQuotationAddEditScreenState extends BaseState<AcurabathQuotation
                                                         ? 0
                                                         : edt_StateCode.text),
                                                 _editModel,
-                                                edt_HeaderDisc.text,
+                                                "0.00",
 
                                             _maindis_per.text,
                                             _maindis_per_amnt.text,
@@ -1176,7 +1176,7 @@ class _AcurabathQuotationAddEditScreenState extends BaseState<AcurabathQuotation
                                     isUpdateCalculation = true;
 
                                     edt_HeaderDisc.text =
-                                        addditionalCharges.DiscountAmt;
+                                        "0.00";
 
                                     _maindis_per.text = addditionalCharges.ACDis;
                                     _maindis_per_amnt.text = addditionalCharges.ACDisAmnt;
@@ -1218,7 +1218,7 @@ class _AcurabathQuotationAddEditScreenState extends BaseState<AcurabathQuotation
                                                         ? 0
                                                         : edt_StateCode.text),
                                                 _editModel,
-                                                edt_HeaderDisc.text,
+                                            "0.00",
                                                 _maindis_per.text,
                                                 _maindis_per_amnt.text,
                                                 "Calculation",
@@ -1230,7 +1230,7 @@ class _AcurabathQuotationAddEditScreenState extends BaseState<AcurabathQuotation
                                     isUpdateCalculation = true;
 
                                     edt_HeaderDisc.text =
-                                        addditionalCharges.DiscountAmt;
+                                        "0.00";
 
                                     _maindis_per.text = addditionalCharges.ACDis;
                                     _maindis_per_amnt.text = addditionalCharges.ACDisAmnt;
@@ -1649,6 +1649,10 @@ class _AcurabathQuotationAddEditScreenState extends BaseState<AcurabathQuotation
     _controller_currency_Symbol.text = _editModel.CurrencySymbol;
     _controller_exchange_rate.text = _editModel.ExchangeRate.toString();
 
+
+    _maindis_per.text = _editModel.DiscountPer.toStringAsFixed(2);
+    _maindis_per_amnt.text = _editModel.discountAmt.toStringAsFixed(2);
+
     print("sdlfjdfsj" +
         _offlineLoggedInData.details[0].stateCode.toString() +
         " CustomerStateCode : " +
@@ -1665,7 +1669,7 @@ class _AcurabathQuotationAddEditScreenState extends BaseState<AcurabathQuotation
 
     _inquiryBloc.add(AddGenericAddditionalChargesEvent(
         GenericAddditionalCharges(
-            _editModel.discountAmt.toString(),
+            "0.00",
             _editModel.chargeID1.toString(),
             _editModel.chargeAmt1.toString(),
             _editModel.chargeID2.toString(),
@@ -1706,7 +1710,7 @@ class _AcurabathQuotationAddEditScreenState extends BaseState<AcurabathQuotation
       edt_InquiryNo.text = "";
     });
 
-    edt_HeaderDisc.text = _editModel.discountAmt.toStringAsFixed(2);
+    edt_HeaderDisc.text = "0.00";
     edt_ChargeID1.text = _editModel.chargeID1.toString();
     edt_ChargeID2.text = _editModel.chargeID2.toString();
     edt_ChargeID3.text = _editModel.chargeID3.toString();
@@ -1781,7 +1785,7 @@ class _AcurabathQuotationAddEditScreenState extends BaseState<AcurabathQuotation
         edt_ChargeTaxType4.text);
 
     addditionalCharges = AddditionalCharges(
-      DiscountAmt: _editModel.discountAmt.toString(),
+      DiscountAmt: "0.00",
       SGSTAmt: _editModel.sGSTAmt.toString(),
       CGSTAmt: _editModel.cGSTAmt.toString(),
       IGSTAmt: _editModel.iGSTAmt.toString(),
@@ -2097,7 +2101,7 @@ class _AcurabathQuotationAddEditScreenState extends BaseState<AcurabathQuotation
       int StateCode = state.StateCode;
 
       edt_HeaderDisc.text =
-          state.response.details[i].headerDiscountAmt.toStringAsFixed(2);
+          "0.00";
 
       _onTapOfAdd(
           ProductName,
@@ -2796,9 +2800,7 @@ class _AcurabathQuotationAddEditScreenState extends BaseState<AcurabathQuotation
       if (edt_CustomerName.text != "") {
         if (edt_Portal_details.text != "") {
           if (temp.length != 0) {
-            HeaderDisAmnt = edt_HeaderDisc.text.isNotEmpty
-                ? double.parse(edt_HeaderDisc.text)
-                : 0.00;
+            HeaderDisAmnt = 0.00;
 
             List<QuotationTable> TempproductList1 =
                 HeaderDiscountCalculation.txtHeadDiscount_WithZero(
@@ -3709,7 +3711,7 @@ class _AcurabathQuotationAddEditScreenState extends BaseState<AcurabathQuotation
   }
 
   void _OnTaptoSave() async {
-    HeaderDisAmnt = double.parse(edt_HeaderDisc.text.toString());
+    HeaderDisAmnt = 0.00;
 
     TotalCalculation();
     TotalCalculation2();
@@ -4145,7 +4147,7 @@ class _AcurabathQuotationAddEditScreenState extends BaseState<AcurabathQuotation
     }
     print("Tot_NetAmtTot_NetAmt" + " Tot_NetAmt : " + tot_amnt_net.toString());
 
-    HeaderDisAmnt = double.parse(edt_HeaderDisc.text.toString());
+    HeaderDisAmnt = 0.00;
 
     double ExclusiveItemWiseHeaderDisAmnt = 0.00;
     double ExclusiveItemWiseAmount = 0.00;
@@ -4520,7 +4522,7 @@ class _AcurabathQuotationAddEditScreenState extends BaseState<AcurabathQuotation
     print("Tot_NetAmtTot_NetAmt" + " Tot_NetAmt : " + tot_amnt_net.toString());
 
     double HeaderDisAmnt =
-        double.parse(edt_HeaderDisc.text == null ? 0.00 : edt_HeaderDisc.text);
+        0.00;
     double ExclusiveItemWiseHeaderDisAmnt = 0.00;
     double ExclusiveItemWiseAmount = 0.00;
     double ExclusiveNetAmntAfterHeaderDisAmnt = 0.00;
@@ -4871,9 +4873,7 @@ class _AcurabathQuotationAddEditScreenState extends BaseState<AcurabathQuotation
           " Tot_NetAmt : " +
           Tot_NetAmt.toString());
 
-      HeaderDisAmnt = edt_HeaderDisc.text.isNotEmpty
-          ? double.parse(edt_HeaderDisc.text)
-          : 0.00;
+      HeaderDisAmnt = 0.00;
 
 
 
@@ -5313,7 +5313,7 @@ class _AcurabathQuotationAddEditScreenState extends BaseState<AcurabathQuotation
   void AddAddtionalCharge() async {
     await OfflineDbHelper.getInstance()
         .insertGenericAddditionalCharges(GenericAddditionalCharges(
-      edt_HeaderDisc.text,
+      "0.00",
       _editModel.chargeID1.toString(),
       _editModel.chargeAmt1.toString(),
       _editModel.chargeID2.toString(),
@@ -5997,7 +5997,7 @@ class _AcurabathQuotationAddEditScreenState extends BaseState<AcurabathQuotation
                                   arguments: AcurabathOldAddQuotationProductListArgument(
                                       InquiryNo,
                                       edt_StateCode.text,
-                                      edt_HeaderDisc.text))
+                                      "0.00"))
                               .then((value) async {
                             await getInquiryProductDetails();
                           });
@@ -6032,7 +6032,7 @@ class _AcurabathQuotationAddEditScreenState extends BaseState<AcurabathQuotation
                                                 ? 0
                                                 : edt_StateCode.text),
                                             _editModel,
-                                            edt_HeaderDisc.text,
+                                            "0.00",
                                         _maindis_per.text,
                                         _maindis_per_amnt.text,
                                             "OtherCharge",
@@ -6044,10 +6044,7 @@ class _AcurabathQuotationAddEditScreenState extends BaseState<AcurabathQuotation
                                 isUpdateCalculation = true;
 
                                 edt_HeaderDisc.text =
-                                    addditionalCharges.DiscountAmt.toString() ==
-                                            "null"
-                                        ? "0.00"
-                                        : addditionalCharges.DiscountAmt;
+                                    "0.00";
 
                                 _maindis_per.text = addditionalCharges.ACDis;
                                 _maindis_per_amnt.text = addditionalCharges.ACDisAmnt;
@@ -6088,7 +6085,7 @@ class _AcurabathQuotationAddEditScreenState extends BaseState<AcurabathQuotation
                                                 ? 0
                                                 : edt_StateCode.text),
                                             _editModel,
-                                            edt_HeaderDisc.text,
+                                            "0.00",
                                         _maindis_per.text,
                                         _maindis_per_amnt.text,
                                             "Calculation",
@@ -6100,7 +6097,7 @@ class _AcurabathQuotationAddEditScreenState extends BaseState<AcurabathQuotation
                                 isUpdateCalculation = true;
 
                                 edt_HeaderDisc.text =
-                                    addditionalCharges.DiscountAmt;
+                                    "0.00";
                                 _maindis_per.text = addditionalCharges.ACDis;
                                 _maindis_per_amnt.text = addditionalCharges.ACDisAmnt;
 

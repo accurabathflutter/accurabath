@@ -566,10 +566,13 @@ class _AcurabathNewQuotationOtherChargeScreenState
   }
 
   Future<bool> _onBackPressed() async {
+
+    _OnTaptoSave();
     _OnTaptoSave();
 
+
     AddditionalCharges addditionalCharges = AddditionalCharges(
-      DiscountAmt: _headerDiscountController.text.toString(),
+      DiscountAmt: "0.00",
       SGSTAmt: _totalSGSST_AMOUNT_Controller.text.toString(),
       CGSTAmt: _totalCGSST_AMOUNT_Controller.text.toString(),
       IGSTAmt: _totalIGSST_AMOUNT_Controller.text.toString(),
@@ -1367,20 +1370,18 @@ class _AcurabathNewQuotationOtherChargeScreenState
     if (productList != null) {
       CustomerStateID = productList[0].StateCode.toString();
 
-      HeaderDisAmnt = _headerDiscountController.text.isNotEmpty
-          ? double.parse(_headerDiscountController.text)
-          : 0.00;
+      HeaderDisAmnt =  0.00;
       String CompanyStateCode =
           _offlineLoggedInData.details[0].stateCode.toString();
 
       List<QuotationTable> TempproductList1 =
           HeaderDiscountCalculation.txtHeadDiscount_WithZero(
-              productList, HeaderDisAmnt, CompanyStateCode, CustomerStateID);
+              productList, 0.00, CompanyStateCode, CustomerStateID);
 
       List<QuotationTable> TempproductList =
           HeaderDiscountCalculation.txtHeadDiscount_TextChanged(
               TempproductList1,
-              HeaderDisAmnt,
+              0.00,
               CompanyStateCode,
               CustomerStateID);
 
@@ -1393,7 +1394,7 @@ class _AcurabathNewQuotationOtherChargeScreenState
 
       GenericAddditionalCharges newGenericAddditionalCharges =
           GenericAddditionalCharges(
-        _headerDiscountController.text.toString(),
+        "0.00",
         _otherChargeIDController1.text.toString(),
         _otherAmount1.text.toString(),
         _otherChargeIDController2.text.toString(),
@@ -1458,9 +1459,7 @@ class _AcurabathNewQuotationOtherChargeScreenState
           Tot_GSTAmt.toString() +
           " Tot_NetAmt : " +
           Tot_NetAmt.toString() +" Disc " + AcurabathDis.toString());
-      HeaderDisAmnt = _headerDiscountController.text.isNotEmpty
-          ? double.parse(_headerDiscountController.text)
-          : 0.00;
+      HeaderDisAmnt =  0.00;
       AcurabathDis = 0.00;
       AcurabathDis =
           _maindis_per.text.isNotEmpty ? double.parse(_maindis_per.text) : 0.00;
@@ -1705,60 +1704,7 @@ class _AcurabathNewQuotationOtherChargeScreenState
         }
       }
 
-      /* if (_otherChargeNameController4.text.isNotEmpty) {
-        if (_otherChargeNameController4.text.toString() != "null") {
-          hdnOthChrgGST1hdnOthChrgBasic4 =
-              AddtionalCharges.txtOthChrgAmt1_TextChanged(
-                  int.parse(_otherChargeIDController4.text),
-                  double.parse(_otherAmount4.text),
-                  double.parse(_otherChargeGSTPerController4.text),
-                  int.parse(
-                      _otherChargeTaxTypeController4.text.toString() == "0.00"
-                          ? "0"
-                          : _otherChargeTaxTypeController4.text.toString()),
-                  _otherChargeBeForeGSTController4.text.toString() == "true"
-                      ? true
-                      : false);
 
-          if (_otherChargeBeForeGSTController4.text == "true") {
-            Tot_otherChargeWithTax += hdnOthChrgGST1hdnOthChrgBasic4[1];
-          } else {
-            Tot_otherChargeExcludeTax += hdnOthChrgGST1hdnOthChrgBasic4[1];
-          }
-        } else {
-          _otherChargeNameController4.text = "";
-        }
-      }
-      if (_otherChargeNameController5.text.isNotEmpty) {
-        if (_otherChargeNameController5.text.toString() != "null") {
-          hdnOthChrgGST1hdnOthChrgBasic5 =
-              AddtionalCharges.txtOthChrgAmt1_TextChanged(
-                  int.parse(_otherChargeIDController5.text),
-                  double.parse(_otherAmount5.text),
-                  double.parse(_otherChargeGSTPerController5.text),
-                  int.parse(
-                      _otherChargeTaxTypeController5.text.toString() == "0.00"
-                          ? "0"
-                          : _otherChargeTaxTypeController5.text.toString()),
-                  _otherChargeBeForeGSTController5.text.toString() == "true"
-                      ? true
-                      : false);
-
-          if (_otherChargeBeForeGSTController5.text == "true") {
-            Tot_otherChargeWithTax += hdnOthChrgGST1hdnOthChrgBasic5[1];
-          } else {
-            Tot_otherChargeExcludeTax += hdnOthChrgGST1hdnOthChrgBasic5[1];
-          }
-        } else {
-          _otherChargeNameController5.text = "";
-        }
-      }*/
-
-      /* print("llll" +
-          "hdnOthChrgGST1" +
-          hdnOthChrgGST1hdnOthChrgBasic1[0].toString() +
-          " hdnOthChrgBasic1 : " +
-          hdnOthChrgGST1hdnOthChrgBasic1[1].toString());*/
 
       double otherChargeGstAmnt1 = hdnOthChrgGST1hdnOthChrgBasic1.length != 0
           ? hdnOthChrgGST1hdnOthChrgBasic1[0]
@@ -1814,7 +1760,7 @@ class _AcurabathNewQuotationOtherChargeScreenState
         Tot_IGSTAmt,
         Tot_after_acurabath_dis,
         Tot_NetAmt,
-        HeaderDisAmnt,
+        0.0,
         Tot_otherChargeWithTax,
         Tot_otherChargeExcludeTax,
         AcurabathDis,
