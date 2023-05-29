@@ -2277,8 +2277,12 @@ class _NewQuotationOtherChargeScreenState
         arrGenericOtheCharge
             .add(state.quotationOtherChargesListResponse.details[i]);
 
-        print("InquiryStatus : " +
-            state.quotationOtherChargesListResponse.details[i].chargeName);
+        print("otherrrr7up" +
+            state.quotationOtherChargesListResponse.details[i].chargeName + " gSTPer "
+            + state.quotationOtherChargesListResponse.details[i].gSTPer.toString()
+            + " taxType " + state.quotationOtherChargesListResponse.details[i].taxType.toString()
+            + " beforeGST " + state.quotationOtherChargesListResponse.details[i].beforeGST.toString()
+        );
         ALL_Name_ID all_name_id = ALL_Name_ID();
         all_name_id.Name =
             state.quotationOtherChargesListResponse.details[i].chargeName;

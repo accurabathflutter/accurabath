@@ -1440,10 +1440,23 @@ class _AcurabathNewQuotationOtherChargeScreenState
 
       for (int i = 0; i < arrGenericOtheCharge.length; i++) {
         print("TAXXXXX" + arrGenericOtheCharge[i].chargeName);
+
+        print("tesssssstt" + " ChargeID "+arrGenericOtheCharge[i].pkId.toString() +
+            " chargeName  "+arrGenericOtheCharge[i].chargeName.toString() +
+           " TaxType " +  arrGenericOtheCharge[i].taxType.toString() +
+
+            " gSTPer " +  arrGenericOtheCharge[i].gSTPer.toString() +
+            " beforeGST  " +  arrGenericOtheCharge[i].beforeGST.toString()
+
+        );
+
+
         if (_otherChargeIDController1.text ==
             arrGenericOtheCharge[i].pkId.toString()) {
           _otherChargeTaxTypeController1.text =
               arrGenericOtheCharge[i].taxType.toString();
+
+          _otherChargeGSTPerController1.text = arrGenericOtheCharge[i].gSTPer.toString();
           _otherChargeBeForeGSTController1.text =
               arrGenericOtheCharge[i].beforeGST.toString();
         }
@@ -1452,6 +1465,8 @@ class _AcurabathNewQuotationOtherChargeScreenState
             arrGenericOtheCharge[i].pkId.toString()) {
           _otherChargeTaxTypeController2.text =
               arrGenericOtheCharge[i].taxType.toString();
+          _otherChargeGSTPerController2.text = arrGenericOtheCharge[i].gSTPer.toString();
+
           _otherChargeBeForeGSTController2.text =
               arrGenericOtheCharge[i].beforeGST.toString();
         }
@@ -1459,6 +1474,8 @@ class _AcurabathNewQuotationOtherChargeScreenState
             arrGenericOtheCharge[i].pkId.toString()) {
           _otherChargeTaxTypeController3.text =
               arrGenericOtheCharge[i].taxType.toString();
+          _otherChargeGSTPerController3.text = arrGenericOtheCharge[i].gSTPer.toString();
+
           _otherChargeBeForeGSTController3.text =
               arrGenericOtheCharge[i].beforeGST.toString();
         }
@@ -1466,6 +1483,8 @@ class _AcurabathNewQuotationOtherChargeScreenState
             arrGenericOtheCharge[i].pkId.toString()) {
           _otherChargeTaxTypeController4.text =
               arrGenericOtheCharge[i].taxType.toString();
+          _otherChargeGSTPerController4.text = arrGenericOtheCharge[i].gSTPer.toString();
+
           _otherChargeBeForeGSTController4.text =
               arrGenericOtheCharge[i].beforeGST.toString();
         }
@@ -1473,6 +1492,8 @@ class _AcurabathNewQuotationOtherChargeScreenState
             arrGenericOtheCharge[i].pkId.toString()) {
           _otherChargeTaxTypeController5.text =
               arrGenericOtheCharge[i].taxType.toString();
+          _otherChargeGSTPerController5.text = arrGenericOtheCharge[i].gSTPer.toString();
+
           _otherChargeBeForeGSTController5.text =
               arrGenericOtheCharge[i].beforeGST.toString();
         }
@@ -1507,6 +1528,8 @@ class _AcurabathNewQuotationOtherChargeScreenState
                       ? true
                       : false);
 
+          print("hdnOthChrgGST1hdnOthChrgBasic1" +  hdnOthChrgGST1hdnOthChrgBasic1[1].toString() );
+
           if (_otherChargeBeForeGSTController1.text == "true") {
             Tot_otherChargeWithTax += hdnOthChrgGST1hdnOthChrgBasic1[1];
           } else {
@@ -1518,6 +1541,16 @@ class _AcurabathNewQuotationOtherChargeScreenState
       }
       if (_otherChargeNameController2.text.isNotEmpty) {
         if (_otherChargeNameController2.text.toString() != "null") {
+
+
+
+          print("hhhhjjjj" + " ChargeID "+ _otherChargeIDController2.text +
+              " Amount " + _otherAmount2.text +
+              " GSTper " + _otherChargeGSTPerController2.text +
+              " Taxtype " + _otherChargeTaxTypeController2.text +
+              " Before GST " + _otherChargeBeForeGSTController2.text
+
+          );
           hdnOthChrgGST1hdnOthChrgBasic2 =
               AddtionalCharges.txtOthChrgAmt1_TextChanged(
                   _otherChargeIDController2.text.isNotEmpty
@@ -1539,6 +1572,7 @@ class _AcurabathNewQuotationOtherChargeScreenState
                   _otherChargeBeForeGSTController2.text.toString() == "true"
                       ? true
                       : false);
+          print("hdnOthChrgGST1hdnOthChrgBasic2" +  hdnOthChrgGST1hdnOthChrgBasic2[1].toString() );
 
           if (_otherChargeBeForeGSTController2.text == "true") {
             Tot_otherChargeWithTax += hdnOthChrgGST1hdnOthChrgBasic2[1];
@@ -1759,6 +1793,8 @@ class _AcurabathNewQuotationOtherChargeScreenState
       _totalGstController.text = totalGstController.toStringAsFixed(2);
       _netAmountController.text = netAmountController.toStringAsFixed(2);
       _roundOFController.text = roundOFController.toStringAsFixed(2);
+
+
     }
   }
 
@@ -2429,8 +2465,12 @@ class _AcurabathNewQuotationOtherChargeScreenState
         arrGenericOtheCharge
             .add(state.quotationOtherChargesListResponse.details[i]);
 
-        print("InquiryStatus : " +
-            state.quotationOtherChargesListResponse.details[i].chargeName);
+        print("otherrrr7up" +
+            state.quotationOtherChargesListResponse.details[i].chargeName + " gSTPer "
+            + state.quotationOtherChargesListResponse.details[i].gSTPer.toString()
+            + " taxType " + state.quotationOtherChargesListResponse.details[i].taxType.toString()
+            + " beforeGST " + state.quotationOtherChargesListResponse.details[i].beforeGST.toString()
+        );
         ALL_Name_ID all_name_id = ALL_Name_ID();
         all_name_id.Name =
             state.quotationOtherChargesListResponse.details[i].chargeName;
@@ -2453,6 +2493,19 @@ class _AcurabathNewQuotationOtherChargeScreenState
         if (_otherChargeIDController1.text ==
             state.quotationOtherChargesListResponse.details[i].pkId
                 .toString()) {
+
+
+          print("_otherChargeIDController17up" +
+          " pkID : " + state.quotationOtherChargesListResponse.details[i].pkId.toString() +
+          " chargeName " + state.quotationOtherChargesListResponse.details[i].chargeName +
+              " taxType " + state.quotationOtherChargesListResponse.details[i].taxType.toString() +
+              " gSTPer " + state.quotationOtherChargesListResponse.details[i].gSTPer.toString() +
+              " beforeGST " +  state
+              .quotationOtherChargesListResponse.details[i].beforeGST
+              .toString()
+          );
+
+
           _otherChargeIDController1.text = state
               .quotationOtherChargesListResponse.details[i].pkId
               .toString();
@@ -2471,9 +2524,21 @@ class _AcurabathNewQuotationOtherChargeScreenState
               .toString();
         }
 
-        if (_otherChargeIDController2.text ==
+        else  if (_otherChargeIDController2.text ==
             state.quotationOtherChargesListResponse.details[i].pkId
                 .toString()) {
+
+
+          print("_otherChargeIDController27up" +
+              " pkID : " + state.quotationOtherChargesListResponse.details[i].pkId.toString() +
+              " chargeName " + state.quotationOtherChargesListResponse.details[i].chargeName +
+              " taxType " + state.quotationOtherChargesListResponse.details[i].taxType.toString() +
+              " gSTPer " + state.quotationOtherChargesListResponse.details[i].gSTPer.toString() +
+              " beforeGST " +  state
+              .quotationOtherChargesListResponse.details[i].beforeGST
+              .toString()
+          );
+
           _otherChargeIDController2.text = state
               .quotationOtherChargesListResponse.details[i].pkId
               .toString();
@@ -2490,7 +2555,8 @@ class _AcurabathNewQuotationOtherChargeScreenState
           _otherChargeBeForeGSTController2.text = state
               .quotationOtherChargesListResponse.details[i].beforeGST
               .toString();
-        } else if (_otherChargeIDController3.text ==
+        }
+        else if (_otherChargeIDController3.text ==
             state.quotationOtherChargesListResponse.details[i].pkId
                 .toString()) {
           _otherChargeIDController3.text = state
@@ -2509,7 +2575,8 @@ class _AcurabathNewQuotationOtherChargeScreenState
           _otherChargeBeForeGSTController3.text = state
               .quotationOtherChargesListResponse.details[i].beforeGST
               .toString();
-        } else if (_otherChargeIDController4.text ==
+        }
+        else if (_otherChargeIDController4.text ==
             state.quotationOtherChargesListResponse.details[i].pkId
                 .toString()) {
           _otherChargeIDController4.text = state
@@ -2528,7 +2595,8 @@ class _AcurabathNewQuotationOtherChargeScreenState
           _otherChargeBeForeGSTController4.text = state
               .quotationOtherChargesListResponse.details[i].beforeGST
               .toString();
-        } else if (_otherChargeIDController5.text ==
+        }
+        else if (_otherChargeIDController5.text ==
             state.quotationOtherChargesListResponse.details[i].pkId
                 .toString()) {
           _otherChargeIDController5.text = state
@@ -2550,109 +2618,7 @@ class _AcurabathNewQuotationOtherChargeScreenState
         }
       }
 
-      /*  if(arr_ALL_Name_ID_For_ProjectList1.length!=0)
-        {
-          for(int i=0;i<arr_ALL_Name_ID_For_ProjectList1.length;i++)
-            {
-              if(_otherChargeIDController1.text==arr_ALL_Name_ID_For_ProjectList1[i].pkID.toString())
-              {
-                _otherChargeIDController1.text        = arr_ALL_Name_ID_For_ProjectList1[i].pkID.toString();
-                _otherChargeNameController1.text      = arr_ALL_Name_ID_For_ProjectList1[i].Name;
-                _otherChargeTaxTypeController1.text   = arr_ALL_Name_ID_For_ProjectList1[i].Taxtype;
-                _otherChargeGSTPerController1.text    = arr_ALL_Name_ID_For_ProjectList1[i].TaxRate;
-                _otherChargeBeForeGSTController1.text = arr_ALL_Name_ID_For_ProjectList1[i].isChecked.toString();
 
-
-              }
-
-            }
-        }
-      else if(arr_ALL_Name_ID_For_ProjectList2.length!=0)
-      {
-        for(int i=0;i<arr_ALL_Name_ID_For_ProjectList2.length;i++)
-        {
-          if(_otherChargeIDController2.text==arr_ALL_Name_ID_For_ProjectList2[i].pkID.toString())
-          {
-            _otherChargeIDController2.text = arr_ALL_Name_ID_For_ProjectList2[i].pkID.toString();
-
-            _otherChargeNameController2.text  = arr_ALL_Name_ID_For_ProjectList2[i].Name;
-
-            _otherChargeTaxTypeController2.text = arr_ALL_Name_ID_For_ProjectList2[i].Taxtype;
-            _otherChargeGSTPerController2.text =arr_ALL_Name_ID_For_ProjectList2[i].TaxRate;
-            _otherChargeBeForeGSTController2.text = arr_ALL_Name_ID_For_ProjectList2[i].isChecked.toString();
-
-
-          }
-
-        }
-      }
-      else if(arr_ALL_Name_ID_For_ProjectList3.length!=0)
-      {
-        for(int i=0;i<arr_ALL_Name_ID_For_ProjectList3.length;i++)
-        {
-
-          print("gfry"+ _otherChargeIDController3.text  + "ArrayChrgeID : " + arr_ALL_Name_ID_For_ProjectList3[i].pkID.toString());
-          if(_otherChargeIDController3.text==arr_ALL_Name_ID_For_ProjectList3[i].pkID.toString())
-          {
-            _otherChargeIDController3.text = arr_ALL_Name_ID_For_ProjectList3[i].pkID.toString();
-
-            _otherChargeNameController3.text  = arr_ALL_Name_ID_For_ProjectList3[i].Name;
-
-
-            _otherChargeTaxTypeController3.text = arr_ALL_Name_ID_For_ProjectList3[i].Taxtype;
-
-            print("sdfjdfj"+ "ChargeTaxtype" +  _otherChargeTaxTypeController3.text);
-
-            _otherChargeGSTPerController3.text =arr_ALL_Name_ID_For_ProjectList3[i].TaxRate;
-            _otherChargeBeForeGSTController3.text = arr_ALL_Name_ID_For_ProjectList3[i].isChecked.toString();
-
-
-          }
-
-        }
-      }
-      else if(arr_ALL_Name_ID_For_ProjectList4.length!=0)
-      {
-        for(int i=0;i<arr_ALL_Name_ID_For_ProjectList4.length;i++)
-        {
-          if(_otherChargeIDController4.text==arr_ALL_Name_ID_For_ProjectList4[i].pkID.toString())
-          {
-            _otherChargeIDController4.text = arr_ALL_Name_ID_For_ProjectList4[i].pkID.toString();
-
-            _otherChargeNameController4.text  = arr_ALL_Name_ID_For_ProjectList4[i].Name;
-
-            _otherChargeTaxTypeController4.text = arr_ALL_Name_ID_For_ProjectList4[i].Taxtype;
-            _otherChargeGSTPerController4.text =arr_ALL_Name_ID_For_ProjectList4[i].TaxRate;
-            _otherChargeBeForeGSTController4.text = arr_ALL_Name_ID_For_ProjectList4[i].isChecked.toString();
-
-
-          }
-
-        }
-      }
-      else if(arr_ALL_Name_ID_For_ProjectList5.length!=0)
-      {
-        for(int i=0;i<arr_ALL_Name_ID_For_ProjectList5.length;i++)
-        {
-          if(_otherChargeIDController5.text==arr_ALL_Name_ID_For_ProjectList5[i].pkID.toString())
-          {
-            _otherChargeIDController5.text = arr_ALL_Name_ID_For_ProjectList5[i].pkID.toString();
-
-            _otherChargeNameController5.text  = arr_ALL_Name_ID_For_ProjectList5[i].Name;
-
-            _otherChargeTaxTypeController5.text = arr_ALL_Name_ID_For_ProjectList5[i].Taxtype;
-            _otherChargeGSTPerController5.text =arr_ALL_Name_ID_For_ProjectList5[i].TaxRate;
-            _otherChargeBeForeGSTController5.text = arr_ALL_Name_ID_For_ProjectList5[i].isChecked.toString();
-
-
-          }
-
-        }
-
-
-      }
-
-*/
     }
   }
 
